@@ -140,4 +140,38 @@ function finish(){go('end');history.replaceState({ended:true},'',location.pathna
 function closeNote(){document.querySelector('.wrap').innerHTML='<main class="panel" style="margin-top:15vh"><div class="art">🌷</div><h2>سورپرایز تموم شد 💗</h2><p class="lead">ممنون که دیدیش. امیدوارم روزت قشنگ باشه!</p></main>';window.scrollTo(0,0)}
 function confetti(){for(let i=0;i<24;i++){let e=document.createElement('span');e.className='float';e.textContent=['💗','✨','🌸','🎀','⭐','🦋'][Math.floor(Math.random()*6)];e.style.left=Math.random()*100+'vw';e.style.animationDelay=Math.random()*1.5+'s';e.style.fontSize=(16+Math.random()*20)+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),6500)}}
 for(let i=0;i<100;i++){let s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.opacity=Math.random();s.style.setProperty('--dur',(1.5+Math.random()*3)+'s');document.getElementById('stars').appendChild(s)}
-</script></body></html>
+</script></body><div id="asiya-lock" style="position:fixed;inset:0;z-index:999999;background:radial-gradient(circle,#45145f,#14051f);color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;font-family:Tahoma,sans-serif">
+  <div style="font-size:65px">🔒💗</div>
+  <h1>آسیه خانوم 💗</h1>
+  <p style="font-size:18px;line-height:2">یه سورپرایز قشنگ منتظرته!<br>هنوز وقتش نرسیده... 🎁</p>
+  <div id="asiya-countdown" style="font-size:27px;font-weight:bold;margin:25px 0;direction:rtl">در حال محاسبه...</div>
+  <p>⏳ لحظهٔ قشنگت نزدیکه...</p>
+</div>
+
+<script>
+(function(){
+  const target = new Date('2026-10-11T00:00:00+03:30').getTime();
+  const lock = document.getElementById('asiya-lock');
+  const timer = document.getElementById('asiya-countdown');
+
+  function update(){
+    const diff = target - Date.now();
+
+    if(diff <= 0){
+      lock.remove();
+      clearInterval(interval);
+      return;
+    }
+
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+
+    const fa = n => String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+    timer.textContent = fa(h) + ' ساعت  ' + fa(m) + ' دقیقه  ' + fa(s) + ' ثانیه';
+  }
+
+  update();
+  const interval = setInterval(update, 1000);
+})();
+</script></html>
