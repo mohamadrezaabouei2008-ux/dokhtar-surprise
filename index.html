@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>یه دنیای کوچیک برای تو 💗</title>
+<style>
+:root{--ink:#563c70;--rose:#ffb0d2;--lilac:#cbbaff;--cream:#fff9f5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Tahoma,"Segoe UI",sans-serif;color:var(--ink);background:#14132e;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+#world{position:fixed;inset:0;z-index:-5;overflow:hidden;background:linear-gradient(180deg,#11152f 0%,#30224f 23%,#75406f 48%,#d36f9d 73%,#f6a8b8 100%)}
+.aurora{position:absolute;width:140vw;height:68vh;top:10vh;left:-20vw;background:conic-gradient(from 210deg at 50% 0%,transparent,#f8a9d844,#f4c5ff77,transparent,#ff9dbb55,transparent);filter:blur(32px);transform:rotate(-8deg);animation:aurora 18s ease-in-out infinite alternate}
+@keyframes aurora{to{transform:translate(7vw,5vh) rotate(9deg);filter:blur(40px)}}
+.nebula{position:absolute;inset:0;background:radial-gradient(ellipse at 15% 18%,#f5b0df55,transparent 27%),radial-gradient(ellipse at 82% 25%,#9a8df955,transparent 25%),radial-gradient(ellipse at 52% 58%,#ffb4c755,transparent 38%),radial-gradient(ellipse at 50% 100%,#ffc8c855,transparent 35%)}
+#stars{position:absolute;inset:0}
+.star{position:absolute;width:2px;height:2px;background:#fffbe8;border-radius:50%;box-shadow:0 0 8px #fff;animation:twinkle var(--dur,3s) ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.18;transform:scale(.5)}}
+.shooting{position:absolute;width:100px;height:2px;background:linear-gradient(90deg,#fff,transparent);border-radius:100%;transform:rotate(-28deg);opacity:0;animation:shoot 8s linear infinite}
+@keyframes shoot{0%,78%{opacity:0;transform:translate(0,0) rotate(-28deg)}80%{opacity:1}87%{opacity:0;transform:translate(-260px,130px) rotate(-28deg)}100%{opacity:0}}
+.moon{position:absolute;top:9%;left:9%;width:92px;height:92px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff9d9,#ffe8b0 65%,#e9c8a1);box-shadow:0 0 22px #fff0c977,0 0 75px #fff0c944}
+.moon:after{content:"";position:absolute;top:-9px;left:27px;width:88px;height:88px;border-radius:50%;background:#1a1a3a}
+.orbit{position:absolute;left:calc(9% - 24px);top:calc(9% - 24px);width:140px;height:140px;border:1px solid #fce4ff2b;border-radius:50%;animation:spin 25s linear infinite}
+.orbit:after{content:"✦";position:absolute;right:5px;top:25px;color:#ffe8fd;font-size:14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hill{position:absolute;bottom:-4vh;width:120vw;left:-10vw;height:26vh;border-radius:50% 50% 0 0;background:linear-gradient(160deg,#49305d,#211d3d);filter:drop-shadow(0 -8px 18px #ffcae633)}
+.hill.h2{bottom:-9vh;left:25vw;height:22vh;background:linear-gradient(160deg,#805074,#382744);opacity:.82}
+.firefly{position:absolute;color:#ffe9b6;text-shadow:0 0 10px #ffe9b6;animation:fly 9s ease-in-out infinite alternate}
+@keyframes fly{to{transform:translate(30px,-40px);opacity:.25}}
+.wrap{width:min(760px,92%);margin:auto;padding:34px 0 70px}
+.panel{background:linear-gradient(145deg,#fffdf8f4,#fff0f7f0 58%,#f0eafff2);border:1px solid #fff9;border-radius:30px;box-shadow:0 22px 70px #09091f55;padding:clamp(22px,5vw,40px);text-align:center;margin-bottom:24px;position:relative;overflow:hidden}
+.panel:after{content:"✧  ♡  ✦  ♡  ✧";display:block;color:#d59abc;letter-spacing:9px;font-size:.95rem;margin-top:20px}
+.hero{min-height:570px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.badge{display:inline-block;background:#fff0f7;border:1px solid #f4cce1;color:#9b5b8c;padding:8px 14px;border-radius:99px;font-size:.85rem}
+h1{font-size:clamp(1.9rem,6vw,3.1rem);line-height:1.5;margin:18px 0 8px;color:#694783}
+h2{font-size:clamp(1.4rem,4.5vw,2rem);margin:14px 0;color:#76508f}
+p{line-height:2.1}.lead{max-width:510px;margin:8px auto 22px;color:#8b6b9b}
+.primary,.secondary{border:0;border-radius:99px;padding:13px 22px;transition:.2s}
+.primary{background:linear-gradient(110deg,#ff8ebd,#a991f4);color:white;box-shadow:0 9px 24px #d58bc755}
+.secondary{background:#fff;color:#8b5c9e;border:1px solid #efc5df}
+button:hover{transform:translateY(-2px)}
+.art{font-size:clamp(3rem,12vw,6rem);filter:drop-shadow(0 9px 10px #bd80bd55);animation:bob 3s ease-in-out infinite;margin:12px}
+@keyframes bob{50%{transform:translateY(-9px) rotate(2deg)}}
+.hidden{display:none!important}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}
+.card{background:linear-gradient(145deg,#fff,#fff0f8);border:1px solid #f4cce1;border-radius:20px;padding:17px 10px;min-height:108px;color:#684b7b;line-height:1.8;box-shadow:0 7px 20px #d6a6cf20;transition:.2s}
+.card:hover{transform:translateY(-3px) rotate(-.5deg)}
+.card span{display:block;font-size:2rem;margin-bottom:7px}
+.note{background:#fffafe;border:1px dashed #dfa5ce;border-radius:22px;padding:22px;margin:18px 0;line-height:2.2;box-shadow:inset 0 0 24px #fbe9f5}
+.bar{height:6px;background:#f7dbea;border-radius:9px;max-width:280px;margin:16px auto;overflow:hidden}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff91bd,#b28af2);transition:width .4s}
+.timeline{display:grid;gap:11px;text-align:right;max-width:530px;margin:20px auto}
+.item{background:#fff1f7;border-right:4px solid #e9a5cb;border-radius:14px;padding:13px 15px;line-height:1.9}.item b{color:#8c5c9f}
+footer{text-align:center;color:#fbe7f4;padding:8px 0 25px;font-size:.85rem}
+.float{position:fixed;bottom:-35px;z-index:5;pointer-events:none;animation:up 6s linear forwards}
+@keyframes up{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+.small{font-size:.85rem;color:#9b7ba5}
+@media(max-width:440px){.grid{gap:8px}.card{font-size:.9rem;padding:12px 7px}.hero{min-height:500px}.moon{width:60px;height:60px}.moon:after{width:57px;height:57px;left:19px}.orbit{width:105px;height:105px}}
+
+/* پس‌زمینه‌ی تازه: غروب صورتی، نورهای شهر و حال‌وهوای شکوفه‌های گیلاس */
+#world:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.65;background:
+radial-gradient(circle at 8% 34%,#ffd7e8 0 2px,transparent 3px),
+radial-gradient(circle at 17% 48%,#ffbfdc 0 3px,transparent 4px),
+radial-gradient(circle at 88% 37%,#ffd7e8 0 2px,transparent 3px),
+radial-gradient(circle at 77% 55%,#ffc6e3 0 3px,transparent 4px),
+radial-gradient(circle at 30% 67%,#fff0e8 0 2px,transparent 3px),
+radial-gradient(circle at 66% 31%,#ffd5eb 0 2px,transparent 3px),
+radial-gradient(ellipse at 50% 78%,#ffb2ca22,transparent 40%);}
+</style></head>
+<body>
+<div id="world"><div class="nebula"></div><div class="aurora"></div><div id="stars"></div><div class="shooting" style="top:25%;left:75%;animation-delay:2s"></div><div class="shooting" style="top:45%;left:45%;animation-delay:6s"></div><div class="moon"></div><div class="orbit"></div><div class="firefly" style="left:22%;top:57%">✦</div><div class="firefly" style="left:83%;top:48%;animation-delay:2s">✧</div><div class="firefly" style="left:64%;top:72%;animation-delay:4s">✦</div><div class="hill"></div><div class="hill h2"></div></div>
+<div class="wrap">
+<header class="panel hero" id="home">
+ <span class="badge">یه سورپرایز کوچولو، زیر آسمون پرستاره 🎀</span>
+ <div class="art">🌙 🐈‍⬛ 🌷</div>
+ <h1>یه دنیای کوچیک<br>فقط برای تو 💗</h1>
+ <p class="lead">این صفحه یه تبریک معمولی نیست؛ یه مسیر کوچیکه پر از نور، پیام و چندتا سورپرایز. آروم‌آروم جلو برو، آخرش همین‌جا منتظرته…</p>
+ <button class="primary" onclick="start()">وارد دنیای سورپرایز شو ✨</button>
+ <p class="small">ستاره‌ها روشنن؛ حالا نوبت لبخند توئه :)</p>
+</header>
+<section class="panel hidden" id="gift">
+ <span class="badge">مرحله‌ی اول · یه کادوی کوچولو</span><div class="art">🎁</div><h2>این جعبه یه راز داره…</h2>
+ <p class="lead">برای باز کردنش لازم نیست رمز بدونی؛ فقط روی دکمه بزن!</p><button class="primary" onclick="openBox()">بازش کن 🎀</button>
+ <div id="boxnote" class="note hidden">تاداااا! 🎉 توی این جعبه یه عالمه آرزوی قشنگ، کمی شیطنت و یه تبریک مخصوص توئه. امیدوارم لبخندت همین الان یه ذره بیشتر شده باشه. 💗</div>
+ <button class="secondary" onclick="go('cards')">کارت‌های مخفی ←</button>
+</section>
+<section class="panel hidden" id="cards">
+ <span class="badge">مرحله‌ی دوم · کارت‌های مخفی</span><h2>هر کارتی رو باز کنی، یه پیام داری 🌸</h2><p class="lead">چهار تا کارت کوچولو؛ همشون یه چیز خوب برای تو دارن.</p>
+ <div class="grid">
+ <button class="card" onclick="note(0)"><span>🌷</span>یه آرزوی قشنگ</button><button class="card" onclick="note(1)"><span>⭐</span>یه یادآوری</button>
+ <button class="card" onclick="note(2)"><span>🧸</span>یه پیام بامزه</button><button class="card" onclick="note(3)"><span>💌</span>یه کم احساسی</button>
+ </div><div id="cardnote" class="note hidden"></div><div class="bar"><span id="bar"></span></div><p id="count" class="small">۰ از ۴ کارت باز شده</p><button class="secondary" onclick="go('wishes')">ادامه‌ی مسیر ←</button>
+</section>
+<section class="panel hidden" id="wishes">
+ <span class="badge">مرحله‌ی سوم · آرزوهایی برای تو</span><h2>امیدوارم سهمت از دنیا… 🦋</h2>
+ <div class="timeline">
+ <div class="item">🌼 <b>آرامش باشه:</b> حتی روزهای شلوغ، یه گوشه‌ی امن برای نفس کشیدن داشته باشی.</div>
+ <div class="item">✨ <b>اتفاق‌های خوب باشه:</b> آرزوهات یکی‌یکی بهت نزدیک بشن، حتی اگه یه کم دیر.</div>
+ <div class="item">💗 <b>آدم‌های درست باشن:</b> کسایی که بهت احترام بذارن و کنارشون خودت باشی.</div>
+ <div class="item">🎀 <b>خنده‌های واقعی باشه:</b> از اون خنده‌هایی که بی‌هوا میان و کل روز رو قشنگ می‌کنن.</div>
+ <div class="item">🌈 <b>به خودت افتخار کنی:</b> برای تلاش‌هات، حتی قدم‌های کوچیکی که هیچ‌کس نمی‌بینه.</div>
+ </div><button class="secondary" onclick="go('game')">وقت بازیه 🎮</button>
+</section>
+<section class="panel hidden" id="game">
+ <span class="badge">مرحله‌ی چهارم · آزمون فوق‌علمی 😂</span><h2>امروز چه روزیه؟</h2><p class="lead">سؤال سختیه؛ لطفاً از مشاوران استفاده نکن!</p>
+ <div class="grid" style="grid-template-columns:1fr"><button class="card" onclick="wrong()">روز خواب اضافه 🛌</button><button class="card" onclick="right()">روز دخترررر 🎀</button><button class="card" onclick="wrong()">روز تموم کردن خوراکی‌ها 🍪</button></div><p id="gameMsg" class="lead"></p>
+</section>
+<section class="panel hidden" id="music">
+ <span class="badge">مرحله‌ی پنجم · یه لحظه برای حال خوب 🎧</span><h2>یه آهنگ برای حال خوبت</h2><p class="lead">یه آهنگ آروم یا شاد که دوستش داری پخش کن و با همون حس ادامه بده. این قسمت رو باز گذاشتم تا خودت آهنگ موردعلاقه‌ات رو انتخاب کنی.</p>
+ <div class="grid"><div class="card"><span>🎹</span>برای فکرهای قشنگ</div><div class="card"><span>🌈</span>برای لبخند زدن</div><div class="card"><span>🌙</span>برای شب‌های آروم</div><div class="card"><span>💗</span>برای یه حس خوب</div></div><button class="secondary" onclick="go('secret')">یه پیام کوچولو مونده 💌</button>
+</section>
+<section class="panel hidden" id="secret">
+ <span class="badge">مرحله‌ی ششم · یه حرف از ته دل</span><div class="art">💌</div><h2>راستش یه چیزی…</h2>
+ <div class="note">شاید آشنایی‌مون از یه جای معمولی شروع شده باشه، ولی بعضی گفت‌وگوها می‌تونن یه روز عادی رو قشنگ‌تر کنن. خوشحالم که باهات آشنا شدم. 💗<br><br>نمی‌خوام با حرفای بزرگ و عجیب غافلگیرت کنم؛ فقط امیدوارم امروز تونسته باشم یه لبخند کوچولو بیارم روی لبت. بعضی آدما حتی از پشت یه صفحه هم می‌تونن حس خوبی به آدم بدن. 🌷</div>
+ <button class="secondary" onclick="go('final')">پیام آخر رو باز کن ✨</button>
+</section>
+<section class="panel hidden" id="final">
+ <span class="badge">آخرین صفحه · پایان سورپرایز</span><div class="art">🌙💗🌸</div><h2>روز دختر مبارک! 🎀</h2>
+ <div class="note">امیدوارم زندگی باهات مهربون باشه، دلت سبک باشه و هر روز یه دلیل تازه برای ذوق کردن پیدا کنی. شاید این فقط یه صفحه‌ی کوچیک باشه، ولی با این فکر ساخته شده که امروزت یه ذره قشنگ‌تر بشه.<br><br>و یه اعتراف کوچولو: بعضی آدما حتی از پشت یه صفحه هم می‌تونن حس خوبی به آدم بدن. تو هم یکی از همون آدمایی. 💗</div>
+ <p>🌷 همیشه بخند، همیشه بدرخش و هیچ‌وقت مهربونی‌ات رو دست‌کم نگیر. 🌷</p>
+ <p class="small">پایان این سورپرایز همین‌جاست؛ امیدوارم یه لبخند با خودت ببری. ✨</p>
+ <button class="primary" onclick="finish()">بستن سورپرایز 💌</button>
+</section>
+<section class="panel hidden" id="end">
+ <div class="art">🌌</div><h2>شب قشنگت، دلت آروم 💗</h2><p class="lead">ممنون که تا آخر این سورپرایز اومدی. همین‌جا تموم می‌شه؛ دیگه خودکار از اول شروع نمی‌شه. امیدوارم روزت پر از لبخند باشه. 🌷</p>
+ <button class="secondary" onclick="closeNote()">بستن صفحه</button>
+</section>
+<footer>با کمی خیال، یه عالمه ذوق و آرزوی خوب برای تو ✨</footer>
+</div>
+<script>
+const ids=['home','gift','cards','wishes','game','music','secret','final','end'];
+function go(id){ids.forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));window.scrollTo({top:0,behavior:'smooth'});if(id==='final')confetti()}
+function start(){go('gift');confetti()}
+function openBox(){document.getElementById('boxnote').classList.remove('hidden');confetti()}
+const messages=['امیدوارم آرزوهات یکی‌یکی به واقعیت نزدیک بشن و همیشه برای چیزایی که دوست داری ذوق داشته باشی. 🌷','یادت نره لازم نیست هر روز عالی باشی؛ همین که خودت باشی کافیه. ⭐','امیدوارم مشکلاتت خودشون خجالت بکشن و بی‌سروصدا از زندگیت برن! 😂🧸','یه اعتراف کوچولو: حرف زدن با بعضی آدما، حتی از راه دور، می‌تونه حال آدم رو بهتر کنه. خوشحالم که باهات آشنا شدم. 💌'];
+const opened=new Set();
+function note(i){let n=document.getElementById('cardnote');n.textContent=messages[i];n.classList.remove('hidden');opened.add(i);document.getElementById('count').textContent=['۰','۱','۲','۳','۴'][opened.size]+' از ۴ کارت باز شده';document.getElementById('bar').style.width=(opened.size*25)+'%'}
+function wrong(){document.getElementById('gameMsg').textContent='نههه 😂 یه بار دیگه فکر کن!'}
+function right(){document.getElementById('gameMsg').textContent='درست گفتییی! جایزه‌ت آماده‌ست 💗';setTimeout(()=>go('music'),900)}
+function finish(){go('end');history.replaceState({ended:true},'',location.pathname+'#finished')}
+function closeNote(){document.querySelector('.wrap').innerHTML='<main class="panel" style="margin-top:15vh"><div class="art">🌷</div><h2>سورپرایز تموم شد 💗</h2><p class="lead">ممنون که دیدیش. امیدوارم روزت قشنگ باشه!</p></main>';window.scrollTo(0,0)}
+function confetti(){for(let i=0;i<24;i++){let e=document.createElement('span');e.className='float';e.textContent=['💗','✨','🌸','🎀','⭐','🦋'][Math.floor(Math.random()*6)];e.style.left=Math.random()*100+'vw';e.style.animationDelay=Math.random()*1.5+'s';e.style.fontSize=(16+Math.random()*20)+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),6500)}}
+for(let i=0;i<100;i++){let s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.opacity=Math.random();s.style.setProperty('--dur',(1.5+Math.random()*3)+'s');document.getElementById('stars').appendChild(s)}
+</script></body></html>
